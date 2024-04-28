@@ -8,4 +8,8 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+  env: {
+    baseUrl: "http://localhost:3000/",
+    resultUrl: "http://localhost:3000/results",
+  },
 });

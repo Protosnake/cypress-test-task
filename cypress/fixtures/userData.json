@@ -1,0 +1,21 @@
+{
+  "userNameShort": "J",
+  "userNameNormal": "Jack",
+  "userNameLong": "Jacka312434hv",
+  "userNameWithSpace": "Jacka31243 4hv",
+  "userNameWithSpecialChars": "Jacka312434hvasdfaSD!@#$%^&*()_+",
+  "userNameExtrymelyLong": "Jacka312434hvasdfaSD FUJDHGJKV JLKVGH",
+  "passwordShort": "1",
+  "passwordNormal": "16sadfGHI SD",
+  "passwordLong": "16sadfGHIasSDasc adf",
+  "passwordWithSpecialChars": "16sadfGHIasSDasc adf!@#$%^&*()_+",
+  "passwordExtrymelyLong": "jahfguahsiluv hkljwf BNP O   OTh gjksfgh gkls hjh skjhgklahfklahj",
+  "genderMale": "Male",
+  "genderFemale": "Female",
+  "hobbyReading": "Reading",
+  "hobbySports": "Sports",
+  "hobbyMusic": "Music",
+  "timeMorning": "Morning",
+  "timeNoon": "Noon",
+  "timeEvening": "Evening"
+}
