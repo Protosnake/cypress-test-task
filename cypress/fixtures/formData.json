@@ -1,0 +1,7 @@
+{
+  "name": "TestName",
+  "password": "qwerty1234",
+  "gender": "Male",
+  "hobbies": ["Music"],
+  "time": "Morning"
+}
