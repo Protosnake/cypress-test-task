@@ -22,7 +22,6 @@ const timeValidationError = "Please select an item in the list.";
 
 describe('Positive test scenarios', () => {
   it('Submit form with valid "Name" and "Password" fields, gender, one hobby and time are checked', () => {
-
     resultPage.visit();
 
     cy.log("**Filling the form and confirming. . .**");
@@ -34,10 +33,11 @@ describe('Positive test scenarios', () => {
 
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`)
     checkForResultData(formData);
-  })
+
+    formPage.type().should()
+  });
 
   it('Check page loading animation', () => {
-
     resultPage.visit();
 
     cy.log("**Filling the form and confirming. . .**");
@@ -46,7 +46,7 @@ describe('Positive test scenarios', () => {
 
     cy.log("**Checking loading animation. . .**");
     formPage.getPageLoading().should('be.visible');
-  })
+  });
 
   it('Submit form with "space" in username', () => {
     formData.name = "Bob Dylan";
@@ -61,7 +61,7 @@ describe('Positive test scenarios', () => {
     cy.wait(3000);
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`);
     checkForResultData(formData);
-  })
+  });
 
   it('Submit form with special characters in username', () => {
     formData.name = "bob_dylan#$%";
@@ -76,21 +76,21 @@ describe('Positive test scenarios', () => {
     cy.wait(3000);
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`)
     checkForResultData(formData);
-  })
+  });
 
   it('Check "Name" field validation message', () => {
     resultPage.visit();
 
     formPage.getSubmitButton().click();
     checkValidationMessage('input[type="text"]', fieldValidationError);
-  })
+  });
 
   it('Check "Password" field validation message', () => {
     resultPage.visit();
 
     formPage.getSubmitButton().click();
     checkValidationMessage('input[type="password"]', fieldValidationError);
-  })
+  });
 
   it('Check "Gender" radio buttons validation message', () => {
     resultPage.visit();
@@ -100,7 +100,7 @@ describe('Positive test scenarios', () => {
     formPage.getSubmitButton().click();
 
     checkValidationMessage('input[value="Male"]', genderValidationError);
-  })
+  });
 
   it('Check "Time" select validation message', () => {
     resultPage.visit();
@@ -111,7 +111,7 @@ describe('Positive test scenarios', () => {
     formPage.getSubmitButton().click();
 
     checkValidationMessage('select', timeValidationError);
-  })
+  });
 
   it('Submit form with WITH NO hobby', () => {
     formData.hobbies = [];
@@ -126,7 +126,7 @@ describe('Positive test scenarios', () => {
     cy.wait(3000);
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`);
     checkForResultData(formData);
-  })
+  });
 
   it('Submit form with with three hobbies', () => {
     formData.hobbies = ["Reading", "Sports", "Music"];
@@ -142,7 +142,7 @@ describe('Positive test scenarios', () => {
 
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`)
     checkForResultData(formData);
-  })
+  });
 
   it.skip('Submit form with "Noon" in "Time" select', () => {
     formData.time = "Noon";
@@ -157,7 +157,7 @@ describe('Positive test scenarios', () => {
     cy.wait(3000);
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`);
     checkForResultData(formData);
-  })
+  });
 
   it.skip('Submit form with "Evening" in "Time" select', () => {
     formData.time = "Evening";
@@ -172,12 +172,11 @@ describe('Positive test scenarios', () => {
     cy.wait(3000)
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`)
     checkForResultData(formData)
-  })
-})
+  });
+});
 
 
 describe("Negative test scenarios", () => {
-
   it('Submit form password empty field', () => {
     formData.password = "";
 
@@ -191,7 +190,7 @@ describe("Negative test scenarios", () => {
 
     cy.log("**Checking for thye message. . .**");
     checkValidationMessage('input[type="password"]', fieldValidationError);
-  })
+  });
 
   it('Submit form with "space" in password field', () => {
     formData.password = "pass word";
@@ -207,7 +206,7 @@ describe("Negative test scenarios", () => {
 
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`)
     checkForResultData(formData);
-  })
+  });
 
   it('Submit form with 1 character password length', () => {
     formData.password = "f";
@@ -222,7 +221,7 @@ describe("Negative test scenarios", () => {
     cy.wait(3000);
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`);
     checkForResultData(formData);
-  })
+  });
 
   it('Submit form with 100 character password length', () => {
     formData.password = faker.internet.password({ length: 100 });
@@ -237,5 +236,5 @@ describe("Negative test scenarios", () => {
     cy.wait(3000);
     resultPage.getGreetingText().should('contain', `Greetings, ${formData.name}`);
     checkForResultData(formData);
-  })
-})
+  });
+});
